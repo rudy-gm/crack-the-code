@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import GameInfo from "../GameInfo";
-import VerifyNumber from "../NumberComponent";
+import GameInfo from "../components/GameInfo";
+import VerifyNumber from "../components/NumberComponent";
 
 
 
