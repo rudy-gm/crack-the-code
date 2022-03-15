@@ -1,32 +1,44 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
 
 class VerifyNumber extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
-        number1: Math.floor(Math.random()*9),
-        number2: Math.floor(Math.random()*9),
-        number3: Math.floor(Math.random()*9),
-        
-    }
-}
-  
+      numbers: 0
+    };
+  }
 
   render() {
-   
-    function xyz(numbers){
 
-        let numbersArray = this.numbers.map(number => number +2)
+    const generateRandomNumber =() =>{
 
-        return(
-            <div>{numbersArray}</div>
-        )
-    }
+      let verifier = this.state.numbers;
+      let randomNumber = Math.floor(Math.random()*9);
+      let numberGenerated = randomNumber.toString();
 
+      while(numberGenerated.includes(verifier)){
 
-    return <div>{this.state.number1}</div>
+        generateRandomNumber()
+      }
+
+      return numberGenerated;
+
+    };
+
+    const xyz = () => {
+       this.setState({
+         numbers: [generateRandomNumber(),generateRandomNumber(),generateRandomNumber()]
+       })
+    };
+
+    return (
+      <div>
+        <Button onClick={xyz}>function</Button>
+        <div>{this.state.numbers}</div>
+      </div>
+    );
   }
 }
 
