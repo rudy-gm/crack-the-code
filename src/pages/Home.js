@@ -1,22 +1,51 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Col,
+  Modal,
+  ModalBody,
+  ModalHeader,
+} from "reactstrap";
+import GameComponent from "../components/Game";
 import GameInfo from "../components/GameInfo";
-import VerifyNumber from "../components/NumberComponent";
-
-
+import HintsComponent from "../components/Hints";
+import randomThreeDigits from "../components/NumberComponent";
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      test: [1, 2, 3, 4, 5, 6, 7, 8],
+    
+      randomNum: randomThreeDigits(10),
+      isOpen: false
     };
   }
+
+
   render() {
-    const Display = this.state.test.map((element) => {
-      return <div className="row">{element}</div>;
-    });
+
+    const newGame = (event) =>{
+
+      this.setState({
+        randomNum: randomThreeDigits(10)
+      })
+    }
+
+    const handleChange = (event) =>{
+
+      this.setState({
+        isOpen: !this.state.isOpen
+      })
+    }
+
+    const openOrClose = this.state.isOpen
+
+    console.log(this.state.randomNum[0]);
 
     return (
       <div>
@@ -26,15 +55,23 @@ class Home extends Component {
               <h1>Welcome to Crack The Code</h1>
             </div>
             <div className="row">
-              <GameInfo></GameInfo>
+              <div className="col">
+                <GameInfo></GameInfo>
+              </div>
             </div>
           </div>
         </div>
+
         <div className="container">
           <div className="row">
-            <div className="col mt-2">
-              <Button color="primary" >Start Game</Button>
-                <VerifyNumber></VerifyNumber>
+            <div className="col mt-4">
+              <Button color="primary" onClick={handleChange}>{openOrClose ? "New Game": 'Start The Game'}</Button>
+
+              {
+                openOrClose && (
+                  <GameComponent randomNum={this.state.randomNum}></GameComponent>
+                )
+              }
             </div>
           </div>
         </div>

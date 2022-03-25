@@ -19,6 +19,7 @@ class MainComponent extends Component {
           <Route path="/home" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
           <Route path="/contact-me" element={<Contact></Contact>}></Route>
+          <Route path="/" element={<Home></Home>}></Route>
         </Routes>
       </React.Fragment>
     );
