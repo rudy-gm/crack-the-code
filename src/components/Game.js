@@ -79,7 +79,7 @@ class GameComponent extends Component {
         <div className="container mt-3">
           <div className="row">
             <div className="col">
-              <h3>{this.props.randomNum[0]}</h3>
+              {/* <h3>{this.props.randomNum[0]}</h3> */}
             </div>
           </div>
         </div>
