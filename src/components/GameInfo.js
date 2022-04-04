@@ -7,7 +7,7 @@ class GameInfo extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container white-color">
         <div className="row">
           <div className="col mt-2">
             Crack the Code are the puzzles in which there is a lock that has 3

@@ -3,6 +3,7 @@ import { Route, Redirect, Routes, Router } from "react-router-dom";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
+import Footer from "./Footer";
 import Header from "./Header";
 
 class MainComponent extends Component {
@@ -21,6 +22,8 @@ class MainComponent extends Component {
           <Route path="/contact-me" element={<Contact></Contact>}></Route>
           <Route path="/" element={<Home></Home>}></Route>
         </Routes>
+
+        <Footer></Footer>
       </React.Fragment>
     );
   }
